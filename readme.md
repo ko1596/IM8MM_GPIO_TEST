@@ -20,3 +20,43 @@ mkdir  user-DIR
 source /home/adv/adv-release-bsp/build_sdk/tmp/work/aarch64-poky-linux/meta-toolchain/1.0-r7/sdk/image/opt/fsl-imx-xwayland/4.14-sumo/environment-setup-aarch64-poky-linux
 
 cd /home/adv/adv-release-bsp/D88SDK-M0/Ta5320H_G
+
+eMMC
+ls -l /run/media/mmcblk2p1
+SD
+ls -l /run/media/mmcblk1p1
+
+
+unsigned char   dev_SPI_ML22[] = "/dev/spidev1.0";
+
+
+ // SPI port Open  ------------------------------------------------
+ fd_ml22_spi = open( dev_SPI_ML22, O_RDWR );
+ if( fd_ml22_spi < 0 )   {
+  printf("    XXXXX XXXXX  ERR: Open [%s] error.\n", dev_SPI_ML22);
+  return -1;
+ }
+ printf( "    [%s] Open success  ========== \n", dev_SPI_ML22 );
+
+
+ uint32_t   spi_modeW = 0x00;
+ spi_modeW |= SPI_MODE_3;
+ if( ioctl( fd_ml22_spi, SPI_IOC_WR_MODE, &spi_modeW) < 0 )  {
+  printf("    XXXXX ERR: SPI_IOC_WR_MODE error.\n" );
+  close( fd_ml22_spi );
+  return -1;
+ }
+
+ P112    GPIO4  498
+P113    GPIO5   133
+P114    GPIO6   499
+P115    GPIO7   500
+P116    GPIO8   501
+P117    GPIO9   502
+P118    GPIO10  503
+P119    GPIO11  131
+
+ROM-5721 SMARC 
+ROM-DB5901-SWA1
+
+Jems.Cheng<Jems.Cheng@advantech.com.tw>

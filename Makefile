@@ -7,7 +7,7 @@
 PWD = $(shell pwd)
 ##SRC = testjsonc.c
 
-TARGET = gpiotest
+TARGET = spitest
 
 CC=aarch64-linux-gnu-gcc
 #CC=gcc
@@ -19,7 +19,7 @@ CC=aarch64-linux-gnu-gcc
 #LDFLAGS += -pthread
 
 
-OBJS = 	./GPIOtest.o
+OBJS = 	./SPItest.o
 
 
 all: $(OBJS) $(TARGET)
